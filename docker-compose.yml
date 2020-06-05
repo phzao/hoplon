@@ -1,0 +1,50 @@
+version: "3.5"
+services:
+  webserver:
+    image: nginx:alpine
+    container_name: store-web
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8888:8888"
+    networks:
+      - store-net
+
+  php-fpm:
+    build: phpdocker/php-fpm
+    container_name: store-php
+    working_dir: /app
+    environment:
+      XDEBUG_CONFIG: remote_host=192.168.15.3 #your docker network ip.
+      PHP_IDE_CONFIG: "serverName=tolocalhost.com" #phpstorm need a environment var that tell who xdebug connect we must to listen.
+    volumes:
+      - ./:/app
+      - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini
+    networks:
+      - store-net
+
+  database:
+    image: mariadb:10.3
+    container_name: store-database
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./database:/database
+    environment:
+      - "MYSQL_DATABASE=store"
+      - "MYSQL_USER=admin"
+      - "MYSQL_PASSWORD=123"
+      - "MYSQL_ROOT_PASSWORD=123"
+    ports:
+      - "3306:3306"
+    networks:
+      - store-net
+
+volumes:
+  dbdata:
+
+networks:
+  store-net:
+    external:
+      name: db_store
