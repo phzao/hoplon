@@ -10,11 +10,14 @@ class ProductHTML
     private $historyService;
     private $productService;
 
-    public function __construct(HistoryServiceInterface $historyService,
-                                ProductServiceInterface $productService)
+    public function __construct(ProductServiceInterface $productService)
+    {
+        $this->productService = $productService;
+    }
+
+    public function setHistoryService(HistoryServiceInterface $historyService)
     {
         $this->historyService = $historyService;
-        $this->productService = $productService;
     }
 
     public function header()
@@ -22,11 +25,38 @@ class ProductHTML
         echo "<h2>Produtos</h2>";
     }
 
+    public function showAddProductButton()
+    {
+        echo '<button class="incluir_button" style="margin: 10px;" onclick="window.location.href=\'add_products.php\'">Cadastrar</button>';
+    }
+
+    public function initTableToShowProductList()
+    {
+        echo '<table class="table-list" border="0" cellspacing="0" cellpadding="0">
+         <tr>
+			<th>Id</th>
+			<th>Name PT</th>
+			<th>Name EN</th>
+			<th>Name FR</th>
+			<th>Price PT</th>
+			<th>Price EN</th>
+			<th>Price FR</th>
+			<th>Action</th>
+		</tr>';
+    }
+
+    public function endTable()
+    {
+        echo '	</table>
+	          </div>';
+    }
+
     public function showTheBestSellingProduct(): string
     {
         $product = $this->historyService->getTheBestSellingProduct();
 
-        if ($product) {
+        if ($product)
+        {
             $offHtml = "";
             if (!empty($product["off_price"])) {
                 $offHtml = '<span class="sale">'.$product["off_price"].' off </span>';
@@ -48,9 +78,10 @@ class ProductHTML
         return '';
     }
 
-    public function showOneProduct(?array $product): string
+    public function getOneProductToList(array $product): string
     {
-        if ($product) {
+        if ($product)
+        {
             $offHtml = "";
             if (!empty($product["off_price"])) {
                 $offHtml = '<span class="sale">'.$product["off_price"].' off </span>';
@@ -71,17 +102,51 @@ class ProductHTML
         return '';
     }
 
+    private function getProductRowToTable(array $product): string
+    {
+        return '
+        <tr>
+            <td style="text-align: center">'.$product["id"].'</td>
+            <td>'.$product["name_pt"].'</td>
+            <td>'.$product["name_en"].'</td>
+            <td>'.$product["name_fr"].'</td>
+            <td style="text-align: center">'.$product["price_pt"].'</td>
+            <td style="text-align: center">'.$product["price_en"].'</td>
+            <td style="text-align: center">'.$product["price_fr"].'</td>
+            <td style="text-align: center"><a href="edit_products.php">editar</a></td>
+        </tr>';
+    }
+
+    public function showItemTableAdmin()
+    {
+        $productList = $this->productService->getAllProducts();
+
+        $listHTML = "0 results";
+
+        if ($productList)
+        {
+            $listHTML = "";
+            foreach($productList as $item)
+            {
+                $listHTML.= $this->getProductRowToTable($item);
+            }
+        }
+
+        echo $listHTML;
+    }
+
     public function showProducts()
     {
         $productList = $this->productService->getAllProductsToShowOnHTML();
 
         $listHTML = "0 results";
 
-        if ($productList) {
+        if ($productList)
+        {
             $listHTML = "";
             foreach($productList as $item)
             {
-                $listHTML.= $this->showOneProduct($item);
+                $listHTML.= $this->getOneProductToList($item);
             }
         }
         echo '

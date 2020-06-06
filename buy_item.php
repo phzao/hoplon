@@ -1,55 +1,42 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL|E_STRICT);
 
-include('lib/connection.php');
+require 'vendor/autoload.php';
 
-include_once('lib/check_language.php');
+use Dotenv\Dotenv;
 
-$id = $_GET['id'];
+$dotenv = new DotEnv(__DIR__);
+$dotenv->load();
 
-$sql = "SELECT id, name_pt name, price_pt price, sale_start, sale_end, sale_price_pt sale_price FROM products WHERE id = $id";
-
-$result = mysql_query($sql);
-
-// if exists data
-if (mysql_num_rows($result) > 0) {
-
-	// result each row in array
-	$a = mysql_fetch_assoc($result);
-
-
-    $price =  $a['price'];
-	$off_price = '';
-	$sale = '0';
-
-    if (!empty($a['sale_start'])) {
-
-    	$DateStart = strtotime($a['sale_start']);
-    	$DateEnd = strtotime($a['sale_end']);
-
-    	$now = time();
-    	
-    	if ($DateStart <= $now && $now <= $DateEnd) {
-    		$price = $a['sale_price'];
-
-    		$off_price = $a['price'] - $a['sale_price'];
-    		$sale = '1';
-    	}
-    }
-
-
-	$sql  = "INSERT INTO history (product_id, language, price, sale, date)  ";
-	$sql .= "VALUES(".$a['id'].",'" . $lang . "','" . $price . "'," . $sale . ",'" . date('Y-m-d H:i:s') . "')";
-
-	mysql_query($sql);
-}
-
-mysql_close($conn);
+use Src\Models\DatabaseMysql;
+use Src\Pages\LayoutHTML;
+use Src\Services\ProductService;
+use Src\Models\LanguageSetting;
 
 $breadcrumbs = "Home > Store";
 
-include "layout/header.php";
-?>
+$db = new DatabaseMysql();
+$db->openConnection();
 
-<h2>Item comprado com sucesso!</h2>
+$layout = new LayoutHTML();
 
-<a href="index.php">Voltar</a>
+$languageSetting = new LanguageSetting();
+$language = $languageSetting->getPreferredLanguage(strtolower($_SERVER["HTTP_ACCEPT_LANGUAGE"]));
+
+$productService = new ProductService($language, $db);
+
+$layout->showHeaderHtml($breadcrumbs);
+$layout->startContent();
+
+$product = $productService->getProductByIdToBuy($_GET["id"]);
+
+if ($product) {
+
+}
+
+$layout->endContent();
+$layout->showFooterHTML();
+
+$db->closeConnection();

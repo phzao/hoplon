@@ -43,9 +43,14 @@ class ProductService implements ProductServiceInterface
         return $produto_id;
     }
 
-    public function getProductById($id)
+    public function getProductById($id): ?array
     {
         return $this->productRepository->getProductById($id);
+    }
+
+    public function getProductByIdToBuy($id): ?array
+    {
+        return $this->productRepository->getProductByIdToBuy($id);
     }
 
     public function getProductDetailsToLanguage(array $product): array
@@ -56,5 +61,10 @@ class ProductService implements ProductServiceInterface
     public function getAllProductsToShowOnHTML(): ?array
     {
         return $this->productRepository->getAllProductsByLanguage();
+    }
+
+    public function getAllProducts(): ?array
+    {
+        return $this->productRepository->getAllProducts();
     }
 }

@@ -1,54 +1,40 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL|E_STRICT);
+
+require 'vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
+$dotenv = new DotEnv(__DIR__);
+$dotenv->load();
+
+use Src\Models\DatabaseMysql;
+use Src\Pages\LayoutHTML;
+use Src\Pages\ProductHTML;
+use Src\Services\ProductService;
+
 $breadcrumbs = 'Home > Admin';
 
-include('layout/header.php');
+$db = new DatabaseMysql();
+$db->openConnection();
 
-include('lib/connection.php');
+$language = 'PT';
 
-$lang = 'PT';
+$productService = new ProductService($language, $db);
 
-?>
-<div id="content">
-	<button class="incluir_button" style="margin: 10px;" onclick="window.location.href='add_products.php'">Cadastrar</button>
-	<table class="table-list" border="0" cellspacing="0" cellpadding="0">
-		<tr>
-			<th>Id</th>
-			<th>Name PT</th>
-			<th>Name EN</th>
-			<th>Name FR</th>
-			<th>Price PT</th>
-			<th>Price EN</th>
-			<th>Price FR</th>
-			<th>Action</th>
-		</tr>
-<?php
-$sql = "SELECT * FROM products";
+$layout = new LayoutHTML();
 
-$result = mysql_query($sql);
+$productHTML = new ProductHTML($productService);
 
-// if exists data
-if (mysql_num_rows($result) > 0) {
+$layout->showHeaderHtml($breadcrumbs);
+$layout->startContent();
+$productHTML->initTableToShowProductList();
+$productHTML->showItemTableAdmin();
+$productHTML->endTable();
 
-	// result each row in array
-	while($a = mysql_fetch_assoc($result)) 
-    { 
-?>
-	 <tr>
-		<td style="text-align: center"><?php echo $a['id']; ?></td>
-		<td><?php echo $a['name_pt']; ?></td>
-		<td><?php echo $a['name_en']; ?></td>
-		<td><?php echo $a['name_fr']; ?></td>
-		<td style="text-align: center"><?php echo $a['price_pt']; ?></td>
-		<td style="text-align: center"><?php echo $a['price_en']; ?></td>
-		<td style="text-align: center"><?php echo $a['price_fr']; ?></td>
-		<td style="text-align: center"><a href="edit_products.php">editar</a></td>
- 	</tr>
+$layout->endContent();
+$layout->showFooterHTML();
 
-<?php
-    }
-}
-?>
-	</table>
-</div>
-<?php
-include('layout/footer.php');
+$db->closeConnection();

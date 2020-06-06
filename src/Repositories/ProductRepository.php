@@ -21,6 +21,15 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         return $this->entityManager->fetchAssocData();
     }
 
+    public function getProductByIdToBuy($id): ?array
+    {
+        $sql = "SELECT id, name_pt name, price_pt price, sale_start, sale_end, sale_price_pt sale_price FROM products WHERE id = $id";
+
+        $this->entityManager->runQuery($sql);
+
+        return $this->entityManager->fetchAssocData();
+    }
+
     public function getAllProductsByLanguage(): ?array
     {
         $sql = "SELECT id, name_en name, price_en price, sale_start, sale_end, sale_price_en sale_price FROM products";
@@ -30,6 +39,15 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         } elseif ($this->language == 'fr') {
             $sql = "SELECT id, name_fr name, price_fr price, sale_start, sale_end, sale_price_fr sale_price FROM products";
         }
+
+        $this->entityManager->runQuery($sql);
+
+        return $this->entityManager->fetchArray();
+    }
+
+    public function getAllProducts(): ?array
+    {
+        $sql = "SELECT * FROM products";
 
         $this->entityManager->runQuery($sql);
 

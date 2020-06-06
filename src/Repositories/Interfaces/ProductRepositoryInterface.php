@@ -7,4 +7,8 @@ interface ProductRepositoryInterface
     public function getProductById($id): ?array;
 
     public function getAllProductsByLanguage(): ?array;
+
+    public function getAllProducts(): ?array;
+
+    public function getProductByIdToBuy($id): ?array;
 }
