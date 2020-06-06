@@ -11,6 +11,7 @@ class ProductService implements ProductServiceInterface
 {
     private $product;
     private $productRepository;
+    private $saleData;
 
     public function __construct(string $language, DatabaseInterface $db)
     {
@@ -41,6 +42,35 @@ class ProductService implements ProductServiceInterface
         }
 
         return $produto_id;
+    }
+
+    public function makeASale($product_id): bool
+    {
+        if (empty($product_id)) {
+            return false;
+        }
+
+        $product = $this->getProductByIdToBuy($product_id);
+
+        if (!$product) {
+            return false;
+        }
+
+        $this->saleData = $this->product->getProductDetails($product);
+
+        $this->saleData["price"] = $product["price"];
+        $this->saleData["sale"] = '0';
+
+        if(!$this->product->isOpenToSelling($product)) {
+            $this->saleData["sale"] = '1';
+        }
+
+        return true;
+    }
+
+    public function getSaleDetails(): array
+    {
+        return $this->saleData;
     }
 
     public function getProductById($id): ?array

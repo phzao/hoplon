@@ -15,4 +15,8 @@ interface ProductServiceInterface
     public function getAllProducts(): ?array;
 
     public function getProductByIdToBuy($id): ?array;
+
+    public function makeASale($product_id): bool;
+
+    public function getSaleDetails(): array;
 }

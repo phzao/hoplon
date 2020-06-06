@@ -30,6 +30,7 @@ $productHTML = new ProductHTML($productService);
 
 $layout->showHeaderHtml($breadcrumbs);
 $layout->startContent();
+
 $productHTML->initTableToShowProductList();
 $productHTML->showItemTableAdmin();
 $productHTML->endTable();

@@ -2,13 +2,18 @@
 
 namespace Src\Models;
 
+use Src\Models\Interfaces\ProductInterface;
 use Src\Traits\FormatNumbers;
 
-class Product
+class Product implements ProductInterface
 {
     use FormatNumbers;
 
     private $lang;
+
+    private $attributes = [
+        ""
+    ];
 
     public function __construct(string $lang)
     {
@@ -17,7 +22,12 @@ class Product
 
     public function getProductDetails(array $product): array
     {
-        $productData = $this->getProductDataFromLanguage($product);
+        $productData = $product;
+
+        if (!isset($product["price"])) {
+            $productData = $this->getProductDataFromLanguage($product);
+        }
+
         $productData["id"] = $product["id"];
         $productSales = $this->getSalesDetails($product);
 
@@ -44,17 +54,26 @@ class Product
         ];
     }
 
-    private function getOffPriceFromProduct(array $product): ?array
+    public function isOpenToSelling(array $product): bool
     {
         $DateStart = strtotime($product['sale_start']);
         $DateEnd = strtotime($product['sale_end']);
-
         $now = time();
+
+        if ($DateStart <= $now && $now <= $DateEnd) {
+            return true;
+        }
+
+        return false;
+    }
+
+    private function getOffPriceFromProduct(array $product): ?array
+    {
         $price = $this->formatCurrencyTwoDecimals((float)$product["sale_price"]);
         $discount = $product["sale_price"] - $product["sale_price"];
         $off_price = $this->formatCurrencyTwoDecimals((float)$discount);
 
-        if ($DateStart <= $now && $now <= $DateEnd) {
+        if ($this->isOpenToSelling($product)) {
             return [
                 "price" => $price,
                 "off_price" => $off_price

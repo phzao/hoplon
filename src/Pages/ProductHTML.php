@@ -20,6 +20,18 @@ class ProductHTML
         $this->historyService = $historyService;
     }
 
+    public function showRegisterSaleStatus($product_id)
+    {
+        if(!$this->productService->makeASale($_GET["id"])) {
+            echo "";
+        }
+
+        $saleDetails = $this->productService->getSaleDetails();
+        $this->historyService->registerSale($saleDetails);
+
+        echo "<h2>Item comprado com sucesso!</h2>";
+    }
+
     public function header()
     {
         echo "<h2>Produtos</h2>";

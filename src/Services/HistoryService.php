@@ -13,12 +13,10 @@ class HistoryService implements HistoryServiceInterface
     private $productService;
 
     public function __construct(string $language,
-                                DatabaseInterface $db,
-                                ProductServiceInterface $productService)
+                                DatabaseInterface $db)
     {
         $this->historyRepository = new HistoryRepository($db);
         $this->historyRepository->setLanguage($language);
-        $this->productService = $productService;
     }
 
     public function getTheBestSellingProduct(): ?array
@@ -32,5 +30,15 @@ class HistoryService implements HistoryServiceInterface
 
         $product = $this->productService->getProductById($productId);
         return $this->productService->getProductDetailsToLanguage($product);
+    }
+
+    public function registerSale(array $saleDetail)
+    {
+        $this->historyRepository->register($saleDetail);
+    }
+
+    public function setProductService(ProductServiceInterface $productService)
+    {
+        $this->productService = $productService;
     }
 }

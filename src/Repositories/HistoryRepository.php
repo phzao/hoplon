@@ -20,4 +20,12 @@ class HistoryRepository extends BaseRepository implements HistoryRepositoryInter
 
         return $this->entityManager->fetchArray();
     }
+
+    public function register(array $saleDetail)
+    {
+        $sql  = "INSERT INTO history (product_id, language, price, sale, date)";
+        $sql .= "VALUES(".$saleDetail['id'].",'" . $this->language . "','" . $saleDetail["price"] . "'," . $saleDetail["sale"] . ",'" . date('Y-m-d H:i:s') . "')";
+
+        $this->entityManager->runQuery($sql);
+    }
 }

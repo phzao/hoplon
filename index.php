@@ -28,7 +28,9 @@ $languageSetting = new LanguageSetting();
 $language = $languageSetting->getPreferredLanguage(strtolower($_SERVER["HTTP_ACCEPT_LANGUAGE"]));
 
 $productService = new ProductService($language, $db);
-$historyService = new HistoryService($language, $db, $productService);
+
+$historyService = new HistoryService($language, $db);
+$historyService->setProductService($productService);
 
 $productHTML = new ProductHTML($productService);
 $productHTML->setHistoryService($historyService);

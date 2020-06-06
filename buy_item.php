@@ -14,6 +14,8 @@ use Src\Models\DatabaseMysql;
 use Src\Pages\LayoutHTML;
 use Src\Services\ProductService;
 use Src\Models\LanguageSetting;
+use Src\Services\HistoryService;
+use Src\Pages\ProductHTML;
 
 $breadcrumbs = "Home > Store";
 
@@ -26,15 +28,15 @@ $languageSetting = new LanguageSetting();
 $language = $languageSetting->getPreferredLanguage(strtolower($_SERVER["HTTP_ACCEPT_LANGUAGE"]));
 
 $productService = new ProductService($language, $db);
+$historyService = new HistoryService($language, $db);
+
+$productHTML = new ProductHTML($productService);
+$productHTML->setHistoryService($historyService);
 
 $layout->showHeaderHtml($breadcrumbs);
 $layout->startContent();
 
-$product = $productService->getProductByIdToBuy($_GET["id"]);
-
-if ($product) {
-
-}
+$productHTML->showRegisterSaleStatus($_GET["id"]);
 
 $layout->endContent();
 $layout->showFooterHTML();
