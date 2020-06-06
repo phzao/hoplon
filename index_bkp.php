@@ -21,7 +21,7 @@ if ($lang == 'pt') {
 } else {
 	$sql = "SELECT id, name_en name, price_en price, sale_start, sale_end, sale_price_en sale_price FROM products";
 }
-var_dump(mysqli_query("SELECT * FROM products"));
+
 ?>
 
 <div style="display: block;position: relative">

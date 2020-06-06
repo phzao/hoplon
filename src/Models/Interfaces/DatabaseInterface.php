@@ -10,5 +10,7 @@ interface DatabaseInterface
 
     public function runQuery(string $query): void;
 
-    public function fetchAssocData(): array;
+    public function fetchAssocData(): ?array;
+
+    public function fetchArray(): ?array;
 }

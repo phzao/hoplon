@@ -38,10 +38,19 @@ class DatabaseMysql implements DatabaseInterface
         $this->result = mysqli_query($this->conn, $query);
     }
 
-    public function fetchAssocData(): array
+    public function fetchArray(): ?array
     {
         if(mysqli_num_rows($this->result) < 1) {
-            return [];
+            return $this->result;
+        }
+
+        return mysqli_fetch_all($this->result, MYSQLI_ASSOC);
+    }
+
+    public function fetchAssocData(): ?array
+    {
+        if(mysqli_num_rows($this->result) < 1) {
+            return $this->result;
         }
 
         return mysqli_fetch_assoc($this->result);

@@ -50,7 +50,9 @@ Existe também uma API que mostra o produto mais vendido em uma determinada naci
 
 Desenvolver as seguintes funcionalidades no aplicativo web:
 
-a) Adicionar duas novas línguas: Espanhol e Russo; b) Atualmente os dados são inseridos via query em banco de dados, criar uma forma/mecanismo de adicionar novos produtos e alterar os produtos já existentes; c) Criar os testes unitários automatizados para garantir as funcionalidades existentes.
+a) Adicionar duas novas línguas: Espanhol e Russo;
+b) Atualmente os dados são inseridos via query em banco de dados, criar uma forma/mecanismo de adicionar novos produtos e alterar os produtos já existentes;
+c) Criar os testes unitários automatizados para garantir as funcionalidades existentes.
 
 Dicas:
 

@@ -6,7 +6,7 @@ use Src\Pages\Interfaces\LayoutInterface;
 
 class LayoutHTML implements LayoutInterface
 {
-    public function showHeaderHtml(): void
+    public function showHeaderHtml(string $breadcrumbs): void
     {
         echo '<!DOCTYPE html>
                 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt_BR">
@@ -29,7 +29,7 @@ class LayoutHTML implements LayoutInterface
                     </div>
                 
                     <div id="crambs">
-                        <span><?php echo $breadcrumbs; ?></span>
+                        <span>'.$breadcrumbs.'</span>
                         <span class="admin"><a href="admin.php">Admin</a>
                     </div>';
     }
@@ -41,5 +41,15 @@ class LayoutHTML implements LayoutInterface
                 <script type="text/javascript" src="app.js"></script>
                 
                 </html>';
+    }
+
+    public function startContent(): void
+    {
+        echo '<div id="content">';
+    }
+
+    public function endContent(): void
+    {
+        echo '<div>';
     }
 }
