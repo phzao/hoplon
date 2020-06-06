@@ -31,10 +31,7 @@ $productHTML = new ProductHTML($productService);
 $layout->showHeaderHtml($breadcrumbs);
 $layout->startContent();
 
-$productHTML->showAddProductButton();
-$productHTML->initTableToShowProductList();
-$productHTML->showItemTableAdmin();
-$productHTML->endTable();
+//$productHTML->
 
 $layout->endContent();
 $layout->showFooterHTML();

@@ -20,9 +20,30 @@ class ProductHTML
         $this->historyService = $historyService;
     }
 
+    public function showFormRegister()
+    {
+        echo '
+        <h4>Adicionar Produto</h4>
+        <form>
+            <fieldset>
+              <legend>Personalia:</legend>
+              <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+  <label for="birthday">Birthday:</label>
+  <input type="date" id="birthday" name="birthday"><br><br>     
+            </fieldset>
+              <input type="submit" value="Submit">
+        </form>
+        ';
+    }
+
     public function showRegisterSaleStatus($product_id)
     {
-        if(!$this->productService->makeASale($_GET["id"])) {
+        if(!$this->productService->makeASale($product_id)) {
             echo "";
         }
 
@@ -39,7 +60,7 @@ class ProductHTML
 
     public function showAddProductButton()
     {
-        echo '<button class="incluir_button" style="margin: 10px;" onclick="window.location.href=\'add_products.php\'">Cadastrar</button>';
+        echo '<button class="incluir_button" style="margin: 10px;" onclick="window.location.href=\'add_product.php\'">Cadastrar</button>';
     }
 
     public function initTableToShowProductList()
