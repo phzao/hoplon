@@ -12,7 +12,7 @@ class LanguageSetting implements LanguageSettingInterface
     private $default_language; // a default language to fall back to in case there's no match
 
     public function __construct($default_language = "pt",
-                                $available_languages = ["pt", "fr", "en"])
+                                $available_languages = ["pt", "fr", "en", "ru", "es"])
     {
         $this->available_languages = $available_languages;
         $this->default_language = $default_language;

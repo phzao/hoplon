@@ -33,7 +33,7 @@ class Product implements ProductInterface
         "sale_start"
     ];
 
-    public function __construct(string $lang)
+    public function __construct(string $lang = "en")
     {
         $this->lang = $lang;
     }
@@ -42,11 +42,18 @@ class Product implements ProductInterface
     {
         $productData = $product;
 
+        if (empty($product)) {
+            return $productData;
+        }
+
         if (!isset($product["price"])) {
             $productData = $this->getProductDataFromLanguage($product);
         }
 
-        $productData["id"] = $product["id"];
+        if (isset($product["id"])) {
+            $productData["id"] = $product["id"];
+        }
+
         $productSales = $this->getSalesDetails($product);
 
         $productData = array_merge($productData, $productSales);
@@ -74,6 +81,10 @@ class Product implements ProductInterface
 
     public function isOpenToSelling(array $product): bool
     {
+        if (empty($product["sale_start"]) || empty($product["sale_end"])) {
+            return false;
+        }
+
         $DateStart = strtotime($product['sale_start']);
         $DateEnd = strtotime($product['sale_end']);
         $now = time();

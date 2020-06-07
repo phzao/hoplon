@@ -59,3 +59,47 @@ Dicas:
 Fique a vontade para reformular a aplicação - se preferir, pode reescreve-la ou fazer um refactoring.
 Considere que o banco de dados pode ser trocado no futuro
 Projetar a solução considerando um acesso massivo ao site
+
+
+## Instalando e configurando ambiente
+
+Foi realizada a refatoração do código conforme as especificações
+
+## Requisitos
+
+Você deve ter instalado Git, Docker, Docker-compose e Make para rodar com um comando.
+
+A seguinte porta precisa estar disponivel:
+- 8888 (api)
+
+## Instalação
+
+Acessar a pasta e rodar:
+
+
+```
+make up
+```
+
+O processo é bem rápido, mas pode demorar de acordo com a configuração do computador.
+
+Após finalizar, devemos preparar o banco de dados, rode o seguinte comando:
+
+
+```
+make db_up
+```
+
+Será executado o script inicial do db e depois o migration do idioma
+
+Após finalizar, basta acessar:
+
+``
+http://localhost:8888/
+``
+
+
+Obs.: Esta instação deve ser executada apenas 1x.
+
+Os testes serão executados no final do processo.
+

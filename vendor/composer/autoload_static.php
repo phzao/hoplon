@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitccaa1a67a73ca65ea680cde41fdf661e
+class ComposerStaticInit6b47f4bc6333b8d41b4ce4956d1309fe
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -619,8 +619,29 @@ class ComposerStaticInitccaa1a67a73ca65ea680cde41fdf661e
         'SebastianBergmann\\Timer\\RuntimeException' => __DIR__ . '/..' . '/phpunit/php-timer/src/RuntimeException.php',
         'SebastianBergmann\\Timer\\Timer' => __DIR__ . '/..' . '/phpunit/php-timer/src/Timer.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Src\\Migrations\\AddNewLanguage' => __DIR__ . '/../..' . '/src/Migrations/AddNewLanguage.php',
         'Src\\Models\\DatabaseMysql' => __DIR__ . '/../..' . '/src/Models/DatabaseMysql.php',
         'Src\\Models\\Interfaces\\DatabaseInterface' => __DIR__ . '/../..' . '/src/Models/Interfaces/DatabaseInterface.php',
+        'Src\\Models\\Interfaces\\LanguageSettingInterface' => __DIR__ . '/../..' . '/src/Models/Interfaces/LanguageSettingInterface.php',
+        'Src\\Models\\Interfaces\\ProductInterface' => __DIR__ . '/../..' . '/src/Models/Interfaces/ProductInterface.php',
+        'Src\\Models\\LanguageSetting' => __DIR__ . '/../..' . '/src/Models/LanguageSetting.php',
+        'Src\\Models\\Product' => __DIR__ . '/../..' . '/src/Models/Product.php',
+        'Src\\Pages\\HistoryHTML' => __DIR__ . '/../..' . '/src/Pages/HistoryHTML.php',
+        'Src\\Pages\\Interfaces\\LayoutInterface' => __DIR__ . '/../..' . '/src/Pages/Interfaces/LayoutInterface.php',
+        'Src\\Pages\\LayoutHTML' => __DIR__ . '/../..' . '/src/Pages/LayoutHTML.php',
+        'Src\\Pages\\ProductHTML' => __DIR__ . '/../..' . '/src/Pages/ProductHTML.php',
+        'Src\\Repositories\\BaseRepository' => __DIR__ . '/../..' . '/src/Repositories/BaseRepository.php',
+        'Src\\Repositories\\HistoryRepository' => __DIR__ . '/../..' . '/src/Repositories/HistoryRepository.php',
+        'Src\\Repositories\\Interfaces\\BaseRepositoryInterface' => __DIR__ . '/../..' . '/src/Repositories/Interfaces/BaseRepositoryInterface.php',
+        'Src\\Repositories\\Interfaces\\HistoryRepositoryInterface' => __DIR__ . '/../..' . '/src/Repositories/Interfaces/HistoryRepositoryInterface.php',
+        'Src\\Repositories\\Interfaces\\ProductRepositoryInterface' => __DIR__ . '/../..' . '/src/Repositories/Interfaces/ProductRepositoryInterface.php',
+        'Src\\Repositories\\ProductRepository' => __DIR__ . '/../..' . '/src/Repositories/ProductRepository.php',
+        'Src\\Services\\HistoryService' => __DIR__ . '/../..' . '/src/Services/HistoryService.php',
+        'Src\\Services\\Interfaces\\HistoryServiceInterface' => __DIR__ . '/../..' . '/src/Services/Interfaces/HistoryServiceInterface.php',
+        'Src\\Services\\Interfaces\\ProductServiceInterface' => __DIR__ . '/../..' . '/src/Services/Interfaces/ProductServiceInterface.php',
+        'Src\\Services\\ProductService' => __DIR__ . '/../..' . '/src/Services/ProductService.php',
+        'Src\\Traits\\FormatDate' => __DIR__ . '/../..' . '/src/Traits/FormatDate.php',
+        'Src\\Traits\\FormatNumbers' => __DIR__ . '/../..' . '/src/Traits/FormatNumbers.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
@@ -635,9 +656,9 @@ class ComposerStaticInitccaa1a67a73ca65ea680cde41fdf661e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitccaa1a67a73ca65ea680cde41fdf661e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitccaa1a67a73ca65ea680cde41fdf661e::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitccaa1a67a73ca65ea680cde41fdf661e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6b47f4bc6333b8d41b4ce4956d1309fe::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6b47f4bc6333b8d41b4ce4956d1309fe::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit6b47f4bc6333b8d41b4ce4956d1309fe::$classMap;
 
         }, null, ClassLoader::class);
     }

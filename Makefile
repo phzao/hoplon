@@ -20,3 +20,5 @@ up:
 db_up:
 	@echo '************  create db ************'
 	docker exec -i store-database mysql -uroot -p123 <./database/create.sql
+	@echo '************  run migrations db ************'
+	docker exec -i store-php php -f runMigration.php
