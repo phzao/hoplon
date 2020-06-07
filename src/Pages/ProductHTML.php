@@ -199,7 +199,7 @@ class ProductHTML
         if ($product)
         {
             $offHtml = "";
-            if (!empty($product["off_price"])) {
+            if (!empty($product["off_price"]) && (float)$product["off_price"] > 0) {
                 $offHtml = '<span class="sale">'.$product["off_price"].' off </span>';
             }
 

@@ -30,6 +30,7 @@ class HistoryService implements HistoryServiceInterface
         }
 
         $product = $this->productService->getProductById($productId);
+
         return $this->productService->getProductDetailsToLanguage($product);
     }
 

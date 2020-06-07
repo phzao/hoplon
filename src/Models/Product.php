@@ -53,15 +53,18 @@ class Product implements ProductInterface
         if (isset($product["id"])) {
             $productData["id"] = $product["id"];
         }
-
         $productSales = $this->getSalesDetails($product);
 
-        $productData = array_merge($productData, $productSales);
+        if (!empty($productSales)) {
+            $productData = array_merge($productData, $productSales);
+        }
 
         if (!empty($productData['sale_start'])) {
 
             $off_price = $this->getOffPriceFromProduct($productData);
-            $productData = array_merge($productData, $off_price);
+            if (!empty($off_price)) {
+                $productData = array_merge($productData, $off_price);
+            }
         }
 
         return $productData;
@@ -101,7 +104,11 @@ class Product implements ProductInterface
     private function getOffPriceFromProduct(array $product): ?array
     {
         $price = $this->formatCurrencyTwoDecimals((float)$product["sale_price"]);
-        $discount = $product["price"] - $product["sale_price"];
+        $discount = 0;
+        if (is_float($product["price"]) && is_float($product["sale_price"])) {
+            $discount = $product["price"] - $product["sale_price"];
+        }
+
         $off_price = $this->formatCurrencyTwoDecimals((float)$discount);
 
         if ($this->isOpenToSelling($product)) {
@@ -116,26 +123,43 @@ class Product implements ProductInterface
 
     private function getProductDataFromLanguage(array $product): array
     {
-        if ($this->lang == 'PT') {
-            return [
-                "price" => $this->formatCurrencyTwoDecimals((float)$product['price_pt']),
-                "sale_price" => $this->formatCurrencyTwoDecimals((float)$product['sale_price_pt']),
-                "name" => $product['name_pt']
-            ];
-        }
-        if ($this->lang == 'FR') {
-            return [
-            "price" => $this->formatCurrencyTwoDecimals((float)$product['price_fr']),
-            "sale_price" => $this->formatCurrencyTwoDecimals((float)$product['sale_price_fr']),
-            "name" => $product['name_fr']
-            ];
+        if ($this->lang === 'PT') {
+            $pt["price"] = !empty($product['price_pt'])?$this->formatCurrencyTwoDecimals((float)$product['price_pt']): "";
+            $pt["sale_price"] = !empty($product['sale_price_pt'])?$this->formatCurrencyTwoDecimals((float)$product['sale_price_pt']): "";
+            $pt["name"] = !empty($product['name_pt'])?$product['name_pt']: "";
+
+            return $pt;
         }
 
-        return [
-            "price" => $this->formatCurrencyTwoDecimals((float)$product['price_en']),
-            "sale_price" => $this->formatCurrencyTwoDecimals((float)$product['sale_price_en']),
-            "name" => $product['name_en']
-        ];
+        if ($this->lang === 'FR') {
+            $fr["price"] = !empty($product['price_fr'])?$this->formatCurrencyTwoDecimals((float)$product['price_fr']): "";
+            $fr["sale_price"] = !empty($product['sale_price_fr'])?$this->formatCurrencyTwoDecimals((float)$product['sale_price_fr']): "";
+            $fr["name"] = !empty($product['name_fr'])?$product['name_fr']: "";
+
+            return $fr;
+        }
+
+        if ($this->lang === 'RU') {
+            $ru["price"] = !empty($product['price_ru'])?$this->formatCurrencyTwoDecimals((float)$product['price_ru']): "";
+            $ru["sale_price"] = !empty($product['sale_price_ru'])?$this->formatCurrencyTwoDecimals((float)$product['sale_price_ru']): "";
+            $ru["name"] = !empty($product['name_ru'])?$product['name_ru']: "";
+
+            return $ru;
+        }
+
+        if ($this->lang === 'ES') {
+            $es["price"] = !empty($product['price_es'])?$this->formatCurrencyTwoDecimals((float)$product['price_es']): "";
+            $es["sale_price"] = !empty($product['sale_price_es'])?$this->formatCurrencyTwoDecimals((float)$product['sale_price_es']): "";
+            $es["name"] = !empty($product['name_es'])?$product['name_es']: "";
+
+            return $es;
+        }
+
+        $en["price"] = !empty($product['price_en'])?$this->formatCurrencyTwoDecimals((float)$product['price_en']): "";
+        $en["sale_price"] = !empty($product['sale_price_en'])?$this->formatCurrencyTwoDecimals((float)$product['sale_price_en']): "";
+        $en["name"] = !empty($product['name_en'])?$product['name_en']: "";
+
+        return $en;
     }
 
     public function getProductFilled(array $request): array
