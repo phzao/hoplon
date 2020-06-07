@@ -21,4 +21,6 @@ interface ProductServiceInterface
     public function getSaleDetails(): array;
 
     public function registeringProduct(array $request);
+
+    public function changingProduct(array $request);
 }

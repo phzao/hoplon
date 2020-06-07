@@ -2,7 +2,7 @@
 
 namespace Src\Repositories\Interfaces;
 
-interface ProductRepositoryInterface
+interface ProductRepositoryInterface extends BaseRepositoryInterface
 {
     public function getProductById($id): ?array;
 
@@ -11,6 +11,4 @@ interface ProductRepositoryInterface
     public function getAllProducts(): ?array;
 
     public function getProductByIdToBuy($id): ?array;
-
-    public function save(array $product);
 }

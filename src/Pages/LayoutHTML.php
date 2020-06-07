@@ -34,6 +34,11 @@ class LayoutHTML implements LayoutInterface
                     </div>';
     }
 
+    public function showIdInvalidHTML()
+    {
+        echo "<h4>Id informado é invalido!</h4>";
+    }
+
     public function showFooterHTML(): void
     {
         echo '</body>

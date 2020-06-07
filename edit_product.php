@@ -15,7 +15,7 @@ use Src\Pages\LayoutHTML;
 use Src\Pages\ProductHTML;
 use Src\Services\ProductService;
 
-$breadcrumbs = 'Home > Admin';
+$breadcrumbs = 'Home > Admin > Editar Produto';
 
 $db = new DatabaseMysql();
 $db->openConnection();
@@ -31,7 +31,11 @@ $productHTML = new ProductHTML($productService);
 $layout->showHeaderHtml($breadcrumbs);
 $layout->startContent();
 
-//$productHTML->
+if (!empty($_GET["id"])) {
+    $productHTML->showFormEdit($_GET["id"]);
+} else {
+    $layout->showIdInvalidHTML();
+}
 
 $layout->endContent();
 $layout->showFooterHTML();

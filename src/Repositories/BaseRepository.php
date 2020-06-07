@@ -12,4 +12,15 @@ class BaseRepository
     {
         $this->language = $lang;
     }
+
+    public function setField($value, $addComma = true): string
+    {
+        $comma = $addComma ? "," : "";
+
+        if ($value === 'null') {
+            return $value.$comma;
+        }
+
+        return "'$value'".$comma;
+    }
 }

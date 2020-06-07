@@ -72,7 +72,15 @@ class ProductService implements ProductServiceInterface
     {
         $product = $this->product->getProductFilled($request);
 
+        //...TODO Validate
         $this->productRepository->save($product);
+    }
+
+    public function changingProduct(array $request)
+    {
+        $product = $this->product->getProductFilled($request);
+        //...TODO Validate
+        $this->productRepository->update($product);
     }
 
     public function getSaleDetails(): array

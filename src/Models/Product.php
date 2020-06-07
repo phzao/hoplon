@@ -13,6 +13,7 @@ class Product implements ProductInterface
     private $lang;
 
     private $attributes = [
+        "id",
         "name_pt",
         "name_es",
         "name_en",

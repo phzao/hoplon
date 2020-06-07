@@ -4,9 +4,12 @@ namespace Src\Pages;
 
 use Src\Services\Interfaces\HistoryServiceInterface;
 use Src\Services\Interfaces\ProductServiceInterface;
+use Src\Traits\FormatDate;
 
 class ProductHTML
 {
+    use FormatDate;
+
     private $historyService;
     private $productService;
 
@@ -24,8 +27,72 @@ class ProductHTML
     {
         $this->productService->registeringProduct($request);
 
+        echo '<h4>Produto Regsitrado</h4>';
+    }
+
+    public function showResultEditProduct(array $request)
+    {
+        $this->productService->changingProduct($request);
+
+        echo '<h4>Produto Alterado</h4>';
+    }
+
+    public function showFormEdit($id)
+    {
+        $product = $this->productService->getProductById($id);
+
+        $sale_start = !empty($product["sale_start"])?$this->getISOStringDatetime($product["sale_start"]): "";
+        $sale_end = !empty($product["sale_end"])?$this->getISOStringDatetime($product["sale_end"]): "";
+
         echo '
-        <h4>Produto Regsitrado</h4>
+        <h4>Editar Produto</h4>
+        <form action="/change_product.php" method="post">
+              <label for="sale_start">Vendas Iniciam em:</label>
+              <input type="datetime-local" id="sale_start" value="'.$sale_start.'" name="sale_start"><br><br>
+              <label for="sale_end">Vendas Encerram em:</label>
+              <input type="datetime-local" id="sale_end" value="'.$sale_end.'" name="sale_end"><br><br>
+            <fieldset>
+              <legend> Nome em:</legend>
+              <label for="name_en">inglês:</label>
+              <input type="text" id="name_en" value="'.$product["name_en"].'" name="name_en"><br><br>
+              <label for="name_pt">português:</label>
+              <input type="text" id="name_pt" value="'.$product["name_pt"].'" name="name_pt"><br><br>
+              <label for="name_es">espanhol:</label>
+              <input type="text" id="name_es" value="'.$product["name_es"].'" name="name_es"><br><br>
+              <label for="name_fr">francês:</label>
+              <input type="text" id="name_fr" value="'.$product["name_fr"].'" name="name_fr"><br><br>
+              <label for="name_ru">russo:</label>
+              <input type="text" id="name_ru" value="'.$product["name_ru"].'" name="name_ru"><br><br>     
+            </fieldset>
+            <fieldset>
+              <legend> Valor em:</legend>
+              <label for="price_en">inglês:</label>
+              <input type="text" id="price_en" value="'.$product["price_en"].'" name="price_en"><br><br>
+              <label for="price_pt">português:</label>
+              <input type="text" id="price_pt" value="'.$product["price_pt"].'" name="price_pt"><br><br>
+              <label for="price_es">espanhol:</label>
+              <input type="text" id="price_es" value="'.$product["price_es"].'" name="price_es"><br><br>
+              <label for="price_fr">francês:</label>
+              <input type="text" id="price_fr" value="'.$product["price_fr"].'" name="price_fr"><br><br>
+              <label for="price_ru">russo:</label>
+              <input type="text" id="price_ru" value="'.$product["price_ru"].'" name="price_ru"><br><br>     
+            </fieldset>
+            <fieldset>
+              <legend> Valor de venda em:</legend>
+              <label for="sale_price_en">inglês:</label>
+              <input type="text" id="sale_price_en" value="'.$product["sale_price_en"].'" name="sale_price_en"><br><br>
+              <label for="sale_price_pt">português:</label>
+              <input type="text" id="sale_price_pt" value="'.$product["sale_price_pt"].'" name="sale_price_pt"><br><br>
+              <label for="sale_price_es">espanhol:</label>
+              <input type="text" id="sale_price_es" value="'.$product["sale_price_es"].'" name="sale_price_es"><br><br>
+              <label for="sale_price_fr">francês:</label>
+              <input type="text" id="sale_price_fr" value="'.$product["sale_price_fr"].'" name="sale_price_fr"><br><br>
+              <label for="sale_price_ru">russo:</label>
+              <input type="text" id="sale_price_ru" value="'.$product["sale_price_ru"].'" name="sale_price_ru"><br><br>     
+            </fieldset>
+            <input type="hidden" id="id" value="'.$product["id"].'" name="id"><br><br>
+            <input type="submit" value="Submit">
+        </form>
         ';
     }
 
@@ -187,7 +254,7 @@ class ProductHTML
             <td style="text-align: center">'.$product["price_pt"].'</td>
             <td style="text-align: center">'.$product["price_en"].'</td>
             <td style="text-align: center">'.$product["price_fr"].'</td>
-            <td style="text-align: center"><a href="edit_products.php">editar</a></td>
+            <td style="text-align: center"><a href="edit_product.php?id='.$product["id"].'">editar</a></td>
         </tr>';
     }
 

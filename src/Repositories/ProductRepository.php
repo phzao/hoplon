@@ -21,25 +21,56 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         return $this->entityManager->fetchAssocData();
     }
 
+    public function update(array $product)
+    {
+        $values = " name_pt=".$this->setField($product["name_pt"]);
+        $values .= " name_en=".$this->setField($product["name_en"]);
+        $values .= " name_fr=".$this->setField($product["name_fr"]);
+        $values .= " name_es=".$this->setField($product["name_es"]);
+        $values .= " name_ru=".$this->setField($product["name_ru"]);
+
+        $values .= " price_pt=".$this->setField($product["price_pt"]);
+        $values .= " price_en=".$this->setField($product["price_en"]);
+        $values .= " price_ru=".$this->setField($product["price_ru"]);
+        $values .= " price_fr=".$this->setField($product["price_fr"]);
+        $values .= " price_es=".$this->setField($product["price_es"]);
+
+        $values .= " sale_price_pt=".$this->setField($product["sale_price_pt"]);
+        $values .= " sale_price_en=".$this->setField($product["sale_price_en"]);
+        $values .= " sale_price_fr=".$this->setField($product["sale_price_fr"]);
+        $values .= " sale_price_es=".$this->setField($product["sale_price_es"]);
+        $values .= " sale_price_ru=".$this->setField($product["sale_price_ru"]);
+
+        $values .= " sale_start=".$this->setField($product["sale_start"]);
+        $values .= " sale_end=".$this->setField($product["sale_end"], false);
+
+        $sql = "UPDATE products SET $values WHERE id = ".$product["id"].";";
+
+        $this->entityManager->runQuery($sql);
+    }
+
     public function save(array $product)
     {
-        $values = $product["name_pt"] === 'null' ? $product["name_pt"].',': '\''.$product["name_pt"].'\',';
-        $values .= $product["name_en"] === 'null' ? $product["name_en"].',': '\''.$product["name_en"].'\',';
-        $values .= $product["name_fr"] === 'null' ? $product["name_fr"].',': '\''.$product["name_fr"].'\',';
-        $values .= $product["name_es"] === 'null' ? $product["name_es"].',': '\''.$product["name_es"].'\',';
-        $values .= $product["name_ru"] === 'null' ? $product["name_ru"].',': '\''.$product["name_ru"].'\',';
-        $values .= $product["price_pt"] === 'null' ? $product["price_pt"].',': '\''.$product["price_pt"].'\',';
-        $values .= $product["price_en"] === 'null' ? $product["price_en"].',': '\''.$product["price_en"].'\',';
-        $values .= $product["price_fr"] === 'null' ? $product["price_fr"].',': '\''.$product["price_fr"].'\',';
-        $values .= $product["price_es"] === 'null' ? $product["price_es"].',': '\''.$product["price_es"].'\',';
-        $values .= $product["price_ru"] === 'null' ? $product["price_ru"].',': '\''.$product["price_ru"].'\',';
-        $values .= $product["sale_price_pt"] === 'null' ? $product["sale_price_pt"].',': '\''.$product["sale_price_pt"].'\',';
-        $values .= $product["sale_price_en"] === 'null' ? $product["sale_price_en"].',': '\''.$product["sale_price_en"].'\',';
-        $values .= $product["sale_price_fr"] === 'null' ? $product["sale_price_fr"].',': '\''.$product["sale_price_fr"].'\',';
-        $values .= $product["sale_price_es"] === 'null' ? $product["sale_price_es"].',': '\''.$product["sale_price_es"].'\',';
-        $values .= $product["sale_price_ru"] === 'null' ? $product["sale_price_ru"].',': '\''.$product["sale_price_ru"].'\',';
-        $values .= $product["sale_start"] === 'null' ? $product["sale_start"].',': '\''.$product["sale_start"].'\',';
-        $values .= $product["sale_end"] === 'null' ? $product["sale_end"]: '\''.$product["sale_end"].'\'';
+        $values = $this->setField($product["name_pt"]);
+        $values .= $this->setField($product["name_en"]);
+        $values .= $this->setField($product["name_fr"]);
+        $values .= $this->setField($product["name_es"]);
+        $values .= $this->setField($product["name_ru"]);
+
+        $values .= $this->setField($product["price_pt"]);
+        $values .= $this->setField($product["price_en"]);
+        $values .= $this->setField($product["price_fr"]);
+        $values .= $this->setField($product["price_es"]);
+        $values .= $this->setField($product["price_ru"]);
+
+        $values .= $this->setField($product["sale_price_pt"]);
+        $values .= $this->setField($product["sale_price_en"]);
+        $values .= $this->setField($product["sale_price_fr"]);
+        $values .=$this->setField($product["sale_price_es"]);
+        $values .= $this->setField($product["sale_price_ru"]);
+
+        $values .= $this->setField($product["sale_start"]);
+        $values .= $this->setField($product["sale_end"], false);
 
         $sql = "
         insert into products (name_pt, 
@@ -61,6 +92,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
                               sale_end) 
           values($values);
         ";
+
         $this->entityManager->runQuery($sql);
     }
 
