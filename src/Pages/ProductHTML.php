@@ -20,23 +20,64 @@ class ProductHTML
         $this->historyService = $historyService;
     }
 
+    public function showResultRegisterProduct(array $request)
+    {
+        $this->productService->registeringProduct($request);
+
+        echo '
+        <h4>Produto Regsitrado</h4>
+        ';
+    }
+
     public function showFormRegister()
     {
         echo '
         <h4>Adicionar Produto</h4>
-        <form>
+        <form action="/register_product.php" method="post">
+              <label for="sale_start">Vendas Iniciam em:</label>
+              <input type="datetime-local" id="sale_start" name="sale_start"><br><br>
+              <label for="sale_end">Vendas Encerram em:</label>
+              <input type="datetime-local" id="sale_end" name="sale_end"><br><br>
             <fieldset>
-              <legend>Personalia:</legend>
-              <label for="fname">First name:</label>
-  <input type="text" id="fname" name="fname"><br><br>
-  <label for="lname">Last name:</label>
-  <input type="text" id="lname" name="lname"><br><br>
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email"><br><br>
-  <label for="birthday">Birthday:</label>
-  <input type="date" id="birthday" name="birthday"><br><br>     
+              <legend> Nome em:</legend>
+              <label for="name_en">inglês:</label>
+              <input type="text" id="name_en" name="name_en"><br><br>
+              <label for="name_pt">português:</label>
+              <input type="text" id="name_pt" name="name_pt"><br><br>
+              <label for="name_es">espanhol:</label>
+              <input type="text" id="name_es" name="name_es"><br><br>
+              <label for="name_fr">francês:</label>
+              <input type="text" id="name_fr" name="name_fr"><br><br>
+              <label for="name_ru">russo:</label>
+              <input type="text" id="name_ru" name="name_ru"><br><br>     
             </fieldset>
-              <input type="submit" value="Submit">
+            <fieldset>
+              <legend> Valor em:</legend>
+              <label for="price_en">inglês:</label>
+              <input type="text" id="price_en" name="price_en"><br><br>
+              <label for="price_pt">português:</label>
+              <input type="text" id="price_pt" name="price_pt"><br><br>
+              <label for="price_es">espanhol:</label>
+              <input type="text" id="price_es" name="price_es"><br><br>
+              <label for="price_fr">francês:</label>
+              <input type="text" id="price_fr" name="price_fr"><br><br>
+              <label for="price_ru">russo:</label>
+              <input type="text" id="price_ru" name="price_ru"><br><br>     
+            </fieldset>
+            <fieldset>
+              <legend> Valor de venda em:</legend>
+              <label for="sale_price_en">inglês:</label>
+              <input type="text" id="sale_price_en" name="sale_price_en"><br><br>
+              <label for="sale_price_pt">português:</label>
+              <input type="text" id="sale_price_pt" name="sale_price_pt"><br><br>
+              <label for="sale_price_es">espanhol:</label>
+              <input type="text" id="sale_price_es" name="sale_price_es"><br><br>
+              <label for="sale_price_fr">francês:</label>
+              <input type="text" id="sale_price_fr" name="sale_price_fr"><br><br>
+              <label for="sale_price_ru">russo:</label>
+              <input type="text" id="sale_price_ru" name="sale_price_ru"><br><br>     
+            </fieldset>
+            <input type="submit" value="Submit">
         </form>
         ';
     }

@@ -19,4 +19,6 @@ interface ProductServiceInterface
     public function makeASale($product_id): bool;
 
     public function getSaleDetails(): array;
+
+    public function registeringProduct(array $request);
 }

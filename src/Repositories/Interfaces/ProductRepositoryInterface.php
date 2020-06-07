@@ -11,4 +11,6 @@ interface ProductRepositoryInterface
     public function getAllProducts(): ?array;
 
     public function getProductByIdToBuy($id): ?array;
+
+    public function save(array $product);
 }

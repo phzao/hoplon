@@ -68,6 +68,13 @@ class ProductService implements ProductServiceInterface
         return true;
     }
 
+    public function registeringProduct(array $request)
+    {
+        $product = $this->product->getProductFilled($request);
+
+        $this->productRepository->save($product);
+    }
+
     public function getSaleDetails(): array
     {
         return $this->saleData;

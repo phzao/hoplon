@@ -15,7 +15,7 @@ use Src\Pages\LayoutHTML;
 use Src\Pages\ProductHTML;
 use Src\Services\ProductService;
 
-$breadcrumbs = 'Home > Admin > Novo Produto';
+$breadcrumbs = 'Home > Admin > Registro de Produto';
 
 $db = new DatabaseMysql();
 $db->openConnection();
@@ -31,7 +31,7 @@ $productHTML = new ProductHTML($productService);
 $layout->showHeaderHtml($breadcrumbs);
 $layout->startContent();
 
-$productHTML->showFormRegister();
+$productHTML->showResultRegisterProduct($_POST);
 
 $layout->endContent();
 $layout->showFooterHTML();

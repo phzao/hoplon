@@ -3,16 +3,33 @@
 namespace Src\Models;
 
 use Src\Models\Interfaces\ProductInterface;
+use Src\Traits\FormatDate;
 use Src\Traits\FormatNumbers;
 
 class Product implements ProductInterface
 {
-    use FormatNumbers;
+    use FormatNumbers, FormatDate;
 
     private $lang;
 
     private $attributes = [
-        ""
+        "name_pt",
+        "name_es",
+        "name_en",
+        "name_fr",
+        "name_ru",
+        "price_pt",
+        "price_es",
+        "price_en",
+        "price_fr",
+        "price_ru",
+        "sale_price_pt",
+        "sale_price_en",
+        "sale_price_es",
+        "sale_price_ru",
+        "sale_price_fr",
+        "sale_end",
+        "sale_start"
     ];
 
     public function __construct(string $lang)
@@ -105,5 +122,30 @@ class Product implements ProductInterface
             "sale_price" => $this->formatCurrencyTwoDecimals((float)$product['sale_price_en']),
             "name" => $product['name_en']
         ];
+    }
+
+    public function getProductFilled(array $request): array
+    {
+        $product = [];
+
+        if (empty($request)) {
+            return $product;
+        }
+
+        foreach($this->attributes as $field)
+        {
+            $product[$field] = "null";
+
+            if (($field === "sale_start" || $field === "sale_end") && isset($request[$field])) {
+                $product[$field] = $this->fixInputDatetimeToDatabaseDatetime($request[$field]);
+                continue;
+            }
+
+            if (isset($request[$field]) && !empty($request[$field])) {
+                $product[$field] = $request[$field];
+            }
+        }
+
+        return $product;
     }
 }
