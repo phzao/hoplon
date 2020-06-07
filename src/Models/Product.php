@@ -53,6 +53,7 @@ class Product implements ProductInterface
         if (isset($product["id"])) {
             $productData["id"] = $product["id"];
         }
+
         $productSales = $this->getSalesDetails($product);
 
         if (!empty($productSales)) {
@@ -105,7 +106,7 @@ class Product implements ProductInterface
     {
         $price = $this->formatCurrencyTwoDecimals((float)$product["sale_price"]);
         $discount = 0;
-        if (is_float($product["price"]) && is_float($product["sale_price"])) {
+        if (is_numeric($product["price"]) && is_numeric($product["sale_price"])) {
             $discount = $product["price"] - $product["sale_price"];
         }
 

@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b8950658-4ba5-4c9c-ba54-c87e156acafd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/storeTestPHP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/storeTestPHP.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/ProductHTML.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/ProductHTML.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/HistoryService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/HistoryService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Services/ProductServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Services/ProductServiceTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/bin/phpunit" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" />
@@ -412,144 +410,6 @@
       <change beforePath="$PROJECT_DIR$/vendor/phpspec/prophecy/src/Prophecy/Prophet.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/phpspec/prophecy/src/Prophecy/Util/ExportUtil.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/phpspec/prophecy/src/Prophecy/Util/StringUtil.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/.php_cs.dist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/ChangeLog.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/build.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/manifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/phive.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/phpunit-travis.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/AbstractTester.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Constraint/DataSetIsEqual.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Constraint/TableIsEqual.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Constraint/TableRowCount.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/AbstractDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/AbstractTable.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/AbstractTableMetadata.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/AbstractXmlDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/ArrayDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/CompositeDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/CsvDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/DefaultDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/DefaultTable.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/DefaultTableIterator.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/DefaultTableMetadata.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/Filter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/FlatXmlDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/IDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/ITable.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/ITableIterator.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/ITableMetadata.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/IYamlParser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/MysqlXmlDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/QueryDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/QueryTable.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/ReplacementDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/ReplacementTable.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/ReplacementTableIterator.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/Specification/Csv.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/Specification/Factory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/Specification/FlatXml.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/Specification/IFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/Specification/Query.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/Specification/Specification.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/Specification/Table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/Specification/Xml.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/Specification/Yaml.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/SymfonyYamlParser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/TableFilter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/TableMetadataFilter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/XmlDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DataSet/YamlDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Connection.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/DataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/DefaultConnection.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/FilteredDataSet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Metadata/AbstractMetadata.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Metadata/Dblib.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Metadata/Firebird.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Metadata/InformationSchema.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Metadata/Metadata.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Metadata/MySQL.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Metadata/Oci.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Metadata/PgSQL.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Metadata/SqlSrv.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Metadata/Sqlite.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Metadata/Table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/ResultSetTable.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/Table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Database/TableIterator.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DatabaseListConsumer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/DefaultTester.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Exception/Exception.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Exception/InvalidArgumentException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Exception/RuntimeException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/Composite.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/Delete.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/DeleteAll.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/Exception.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/Factory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/Insert.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/None.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/Operation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/Replace.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/RowBased.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/Truncate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Operation/Update.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/TestCase.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/TestCaseTrait.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/src/Tester.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/Constraint/TableRowCountTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/DB/DefaultDatabaseConnectionTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/DataSet/AbstractTableTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/DataSet/CompositeDataSetTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/DataSet/CsvDataSetTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/DataSet/FilterTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/DataSet/QueryDataSetTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/DataSet/QueryTableTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/DataSet/ReplacementDataSetTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/DataSet/ReplacementTableTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/DataSet/XmlDataSetsTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/Operation/OperationsMySQLTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/Operation/OperationsTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/Operation/RowBasedTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/CsvDataSets/table1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/CsvDataSets/table2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/DatabaseTestUtility.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/AllEmptyTableInsertResult.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/AllEmptyTableInsertTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/DeleteAllOperationTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/DeleteOperationResult.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/DeleteOperationTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/EmptyTableInsertResult.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/EmptyTableInsertTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/FilteredTestComparison.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/FilteredTestFixture.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/FlatXmlDataSet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/FlatXmlWriter.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/FlatXmlWriterEntities.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/InsertOperationResult.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/InsertOperationTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/MysqlXmlDataSet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/OperationsMySQLTestFixture.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/OperationsTestFixture.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/QueryDataSetTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/ReplaceOperationResult.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/ReplaceOperationTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/RowBasedExecute.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/TruncateCompositeTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/UpdateOperationResult.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/UpdateOperationTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/XmlDataSet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/XmlWriter.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/XmlDataSets/XmlWriterEntities.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/dbunit/tests/_files/YamlDataSets/testDataSet.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/.gitattributes" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/.github/CONTRIBUTING.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/.github/ISSUE_TEMPLATE.md" beforeDir="false" />
@@ -1891,22 +1751,6 @@
       <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/bootstrap.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Command/LintCommand.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Dumper.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Escaper.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Exception/DumpException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Exception/ExceptionInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Exception/ParseException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Exception/RuntimeException.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Inline.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Parser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Tag/TaggedValue.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Unescaper.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/Yaml.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/yaml/composer.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/theseer/tokenizer/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/theseer/tokenizer/.php_cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/theseer/tokenizer/.travis.yml" beforeDir="false" />
@@ -1969,8 +1813,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Services/ProductService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="107" column="48" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="48" />
+            <state relative-caret-position="574">
+              <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
               <folding>
                 <element signature="e#32#76#0#PHP" expanded="true" />
               </folding>
@@ -2002,8 +1846,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Services/ProductServiceTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1456">
-              <caret line="112" column="50" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="50" />
+            <state relative-caret-position="706">
+              <caret line="188" selection-start-line="188" selection-end-line="188" />
               <folding>
                 <element signature="e#38#69#0#PHP" expanded="true" />
               </folding>
@@ -2024,11 +1868,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Services/HistoryService.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="416">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="e#57#101#0#PHP" expanded="true" />
               </folding>
@@ -2036,11 +1880,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Models/Product.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+            <state relative-caret-position="557">
+              <caret line="107" column="22" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
               <folding>
                 <element signature="e#55#98#0#PHP" expanded="true" />
               </folding>
@@ -2073,12 +1917,14 @@
       <find>getIdFromTheBestSellingProductFromList</find>
       <find>getAllProductsByLanguage</find>
       <find>ur</find>
-      <find>getAllProductsToShowOnHTML</find>
       <find>var_dump</find>
       <find>getOffPriceFromProduct</find>
       <find>getTheBestSellingProduct</find>
       <find>getProductDetails</find>
       <find>getProductDetailsToLanguage</find>
+      <find>testShowProductWithPriceOff</find>
+      <find>var_d</find>
+      <find>getAllProductsToShowOnHTML</find>
     </findStrings>
     <replaceStrings>
       <replace>].',':</replace>
@@ -2136,47 +1982,47 @@
         <option value="$PROJECT_DIR$/tests/MigrationControl.php" />
         <option value="$PROJECT_DIR$/src/Models/DatabaseMysql.php" />
         <option value="$PROJECT_DIR$/src/Repositories/ProductRepository.php" />
-        <option value="$PROJECT_DIR$/src/Services/ProductService.php" />
-        <option value="$PROJECT_DIR$/tests/Services/ProductServiceTest.php" />
         <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/src/Pages/ProductHTML.php" />
-        <option value="$PROJECT_DIR$/src/Models/Product.php" />
         <option value="$PROJECT_DIR$/src/Services/HistoryService.php" />
+        <option value="$PROJECT_DIR$/src/Services/ProductService.php" />
+        <option value="$PROJECT_DIR$/tests/Services/ProductServiceTest.php" />
+        <option value="$PROJECT_DIR$/src/Models/Product.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
@@ -2201,24 +2047,12 @@
             <path>
               <item name="storeTestPHP" type="b2602c69:ProjectViewProjectNode" />
               <item name="storeTestPHP" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="storeTestPHP" type="b2602c69:ProjectViewProjectNode" />
               <item name="storeTestPHP" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="storeTestPHP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="storeTestPHP" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="storeTestPHP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="storeTestPHP" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="Services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -2274,12 +2108,12 @@
       <workItem from="1591439024879" duration="5922000" />
       <workItem from="1591490352832" duration="5546000" />
       <workItem from="1591525653018" duration="2885000" />
-      <workItem from="1591536927933" duration="22507000" />
+      <workItem from="1591536927933" duration="22988000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70577000" />
+    <option name="totallyTimeSpent" value="71058000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2049" y="71" width="1508" height="934" extended-state="0" />
@@ -2637,16 +2471,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Services/ProductServiceTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1456">
-          <caret line="112" column="50" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="50" />
-          <folding>
-            <element signature="e#38#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Pages/ProductHTML.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -2654,16 +2478,6 @@
           <folding>
             <element signature="e#54#106#0#PHP" expanded="true" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/ProductService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="107" column="48" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="48" />
-          <folding>
-            <element signature="e#32#76#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2692,22 +2506,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Models/Product.php">
+    <entry file="file://$PROJECT_DIR$/src/Services/HistoryService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+        <state relative-caret-position="416">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
-            <element signature="e#55#98#0#PHP" expanded="true" />
+            <element signature="e#57#101#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/HistoryService.php">
+    <entry file="file://$PROJECT_DIR$/src/Services/ProductService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="574">
+          <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
           <folding>
-            <element signature="e#57#101#0#PHP" expanded="true" />
+            <element signature="e#32#76#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Services/ProductServiceTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="706">
+          <caret line="188" selection-start-line="188" selection-end-line="188" />
+          <folding>
+            <element signature="e#38#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Models/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="107" column="22" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
+          <folding>
+            <element signature="e#55#98#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -186,6 +186,7 @@ class ProductServiceTest extends TestCase
         $this->assertTrue($res);
 
         $products = $productService->getAllProductsToShowOnHTML();
+
         $this->assertEquals(-299.80, $products[0]["off_price"]);
     }
 }
