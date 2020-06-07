@@ -15,14 +15,22 @@ class DatabaseMysql implements DatabaseInterface
 
     public function __construct($servername=null, $username=null, $password=null, $dbname=null)
     {
-        $this->servername = $servername ?? getenv('MYSQL_SERVER');
-        $this->username = $username ?? getenv('MYSQ_USER');
-        $this->password = $password ?? getenv('MYSQL_PASS');
-        $this->dbname = $dbname ?? getenv('MYSQL_DATABASE');
+        if (isset($GLOBALS['DB_DSN'])) {
+            $this->servername = $GLOBALS['DB_DSN'];
+            $this->username   = $GLOBALS['DB_USER'];
+            $this->password   = $GLOBALS['DB_PASSWD'];
+            $this->dbname     = $GLOBALS['DB_DBNAME'];
+        } else {
+            $this->servername = $servername ?? getenv('MYSQL_SERVER');
+            $this->username   = $username ?? getenv('MYSQ_USER');
+            $this->password   = $password ?? getenv('MYSQL_PASS');
+            $this->dbname     = $dbname ?? getenv('MYSQL_DATABASE');
+        }
     }
 
     public function openConnection(): void
     {
+
         $this->conn = mysqli_connect($this->servername,
                                $this->username,
                                $this->password,
@@ -33,15 +41,15 @@ class DatabaseMysql implements DatabaseInterface
         }
     }
 
-    public function runQuery(string $query): void
+    public function runQuery(string $query)
     {
-        $this->result = mysqli_query($this->conn, $query);
+        return $this->result = mysqli_query($this->conn, $query);
     }
 
     public function fetchArray(): ?array
     {
         if(mysqli_num_rows($this->result) < 1) {
-            return $this->result;
+            return null;
         }
 
         return mysqli_fetch_all($this->result, MYSQLI_ASSOC);

@@ -46,7 +46,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
         $sql = "UPDATE products SET $values WHERE id = ".$product["id"].";";
 
-        $this->entityManager->runQuery($sql);
+        return $this->entityManager->runQuery($sql);
     }
 
     public function save(array $product)
@@ -93,21 +93,21 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
           values($values);
         ";
 
-        $this->entityManager->runQuery($sql);
+        return $this->entityManager->runQuery($sql);
     }
 
     private function getSelectString()
     {
         $columnsDefault = "id, sale_start, sale_end, ";
 
-        if ($this->language == 'en') {
+        if ($this->language === 'en') {
             return $columnsDefault."name_pt name, price_en price, sale_price_en sale_price";
-        } elseif ($this->language == 'fr') {
+        } elseif ($this->language === 'fr') {
             return $columnsDefault."name_fr name, price_fr price, sale_price_fr sale_price";
-        } elseif ($this->language == 'es') {
+        } elseif ($this->language === 'es') {
             return $columnsDefault."name_es name, price_es price, sale_price_es sale_price";
-        } elseif ($this->language == 'ru') {
-            return $columnsDefault."name_ru name, price_ru price, sale_price_ur sale_price";
+        } elseif ($this->language === 'ru') {
+            return $columnsDefault."name_ru name, price_ru price, sale_price_ru sale_price";
         }
 
         return $columnsDefault."name_pt name, price_pt price, sale_price_pt sale_price";

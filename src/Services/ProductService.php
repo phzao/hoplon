@@ -73,14 +73,19 @@ class ProductService implements ProductServiceInterface
         $product = $this->product->getProductFilled($request);
 
         //...TODO Validate
-        $this->productRepository->save($product);
+        try {
+
+            return $this->productRepository->save($product);
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 
     public function changingProduct(array $request)
     {
         $product = $this->product->getProductFilled($request);
         //...TODO Validate
-        $this->productRepository->update($product);
+        return $this->productRepository->update($product);
     }
 
     public function getSaleDetails(): array
@@ -105,7 +110,15 @@ class ProductService implements ProductServiceInterface
 
     public function getAllProductsToShowOnHTML(): ?array
     {
-        return $this->productRepository->getAllProductsByLanguage();
+        $list = $this->productRepository->getAllProductsByLanguage();
+        $products = [];
+
+        foreach($list as $item)
+        {
+            $products[] = $this->product->getProductDetails($item);
+        }
+
+        return $products;
     }
 
     public function getAllProducts(): ?array

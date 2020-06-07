@@ -22,6 +22,7 @@ class HistoryService implements HistoryServiceInterface
     public function getTheBestSellingProduct(): ?array
     {
         $topSellingList = $this->historyRepository->getTopSellingProducts();
+
         $productId = $this->productService->getIdFromTheBestSellingProductFromList($topSellingList);
 
         if (!$productId) {

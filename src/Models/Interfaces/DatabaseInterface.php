@@ -8,7 +8,7 @@ interface DatabaseInterface
 
     public function closeConnection(): void;
 
-    public function runQuery(string $query): void;
+    public function runQuery(string $query);
 
     public function fetchAssocData(): ?array;
 

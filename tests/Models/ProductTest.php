@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace App\Tests\Models;
+
 use PHPUnit\Framework\TestCase;
 use Src\Models\Product;
 use Src\Models\Interfaces\ProductInterface;

@@ -1,4 +1,5 @@
 CREATE DATABASE `estore` COLLATE 'utf8_general_ci';
+CREATE DATABASE `estore_test` COLLATE 'utf8_general_ci';
 
 use estore;
 

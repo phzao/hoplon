@@ -11,7 +11,7 @@ class LanguageSetting implements LanguageSettingInterface
 
     private $default_language; // a default language to fall back to in case there's no match
 
-    public function __construct($default_language = "pt",
+    public function __construct($default_language = "en",
                                 $available_languages = ["pt", "fr", "en", "ru", "es"])
     {
         $this->available_languages = $available_languages;
@@ -53,5 +53,10 @@ class LanguageSetting implements LanguageSettingInterface
         }
 
         return strtoupper($language_set);
+    }
+
+    public function getLanguageDefault(): string
+    {
+        return strtoupper($this->default_language);
     }
 }

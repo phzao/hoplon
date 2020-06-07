@@ -59,7 +59,9 @@ class Product implements ProductInterface
         $productData = array_merge($productData, $productSales);
 
         if (!empty($productData['sale_start'])) {
-            $productData["off_price"] = $this->getOffPriceFromProduct($productData);
+
+            $off_price = $this->getOffPriceFromProduct($productData);
+            $productData = array_merge($productData, $off_price);
         }
 
         return $productData;
@@ -99,7 +101,7 @@ class Product implements ProductInterface
     private function getOffPriceFromProduct(array $product): ?array
     {
         $price = $this->formatCurrencyTwoDecimals((float)$product["sale_price"]);
-        $discount = $product["sale_price"] - $product["sale_price"];
+        $discount = $product["price"] - $product["sale_price"];
         $off_price = $this->formatCurrencyTwoDecimals((float)$discount);
 
         if ($this->isOpenToSelling($product)) {
