@@ -90,6 +90,14 @@ Após finalizar, devemos preparar o banco de dados, rode o seguinte comando:
 make db_up
 ```
 
+Para rodar os tests unitarios execute:
+
+
+```
+make tests_up
+```
+
+
 Será executado o script inicial do db e depois o migration do idioma
 
 Após finalizar, basta acessar:
